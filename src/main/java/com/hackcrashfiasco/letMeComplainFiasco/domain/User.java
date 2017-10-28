@@ -29,7 +29,7 @@ public class User {
         surname = userToCreate.getSurname();
         age = userToCreate.getAge();
         dateOfBirth = userToCreate.getDateOfBirth();
-        gender = Gender.valueOf(userToCreate.getGender());
+        gender = Gender.valueOf(userToCreate.getGender().toUpperCase());
         telephoneNumber = userToCreate.getTelephoneNumber();
         emailAddress = userToCreate.getEmailAddress();
         password = userToCreate.getPassword();

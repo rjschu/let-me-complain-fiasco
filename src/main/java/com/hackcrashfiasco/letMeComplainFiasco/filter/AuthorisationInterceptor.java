@@ -21,8 +21,8 @@ public class AuthorisationInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        if(!request.getPathInfo().contains("auth") ||
-               (request.getPathInfo().contains("user") && request.getMethod().equalsIgnoreCase("post"))){
+        if(!request.getPathInfo().contains("auth") &&
+               !(request.getPathInfo().contains("user") && request.getMethod().equalsIgnoreCase("post"))){
             String header = request.getHeader("Authorization");
             if(header != null){
                 try {
