@@ -1,0 +1,51 @@
+<div class="outer-container">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Full Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="First Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Surname">
+    </mat-form-field>
+
+    Age
+    <mat-slider thumbLabel tickInterval="1" min="1" max="100" step="0.5" value="1.5"></mat-slider>
+
+    <mat-form-field>
+      <input matInput placeholder="Date of Birth">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{ gender.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Telephone Number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email Address">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password">
+    </mat-form-field>
+
+  </div>
+  <div class="button-wrapper">
+    <button class="alice" (click)="register()" mat-button>Register</button>
+    <button class="alice" (click)="cancel()" mat-button>Cancel</button>
+  </div>
+</div>
