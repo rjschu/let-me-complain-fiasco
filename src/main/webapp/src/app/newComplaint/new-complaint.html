@@ -1,20 +1,29 @@
 <div class="outer-container">
     <mat-form-field>
-        <mat-select [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
+        <mat-select required [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
             <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <div *ngIf="selectedtypeOfComplaint == 'Just Angry'">
-        <iframe width="560" height="315" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
+        <iframe width="960" height="540" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
+        Please enjoy this complementary kitten therapy session
     </div>
 
-    <div *ngIf="selectedtypeOfComplaint == 'Genuine Complaint' || !selectedtypeOfComplaint">
+    <div>
         <mat-form-field>
-            <mat-select [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
-                <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
+            <mat-select required [(ngModel)]="selectedLocation" placeholder="Location">
+                <mat-option *ngFor="let type of typesOfLocation" [value]="type">{{ type }}</mat-option>
             </mat-select>
         </mat-form-field>
+    </div>
+
+    <div *ngIf="selectedLocation == 'Internet'">
+        enter url
+    </div>
+
+    <div *ngIf="selectedLocation == 'Not Internet'">
+        g-maps
     </div>
 
 </div>
