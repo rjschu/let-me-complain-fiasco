@@ -10,6 +10,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {NewComplaintComponent} from "./newComplaint/new-complaint.component";
 import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
+import {NewUserService} from "./new-user/new-user.service";
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
       )
 
   ],
-  providers: [],
+  providers: [NewUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

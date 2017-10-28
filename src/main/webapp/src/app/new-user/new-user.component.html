@@ -1,26 +1,32 @@
 <div class="outer-container">
   <div class="example-container">
+    <form #createForm="ngForm">
     <mat-form-field>
-      <input matInput placeholder="Full Name">
+      <input matInput placeholder="Full Name" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="First Name">
+      <input matInput placeholder="First Name" name="firstName" [(ngModel)]="user.firstName" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Surname">
+      <input matInput placeholder="Surname" name="surname" [(ngModel)]="user.surname">
     </mat-form-field>
 
     Age
-    <mat-slider thumbLabel tickInterval="1" min="1" max="100" step="0.5" value="1.5"></mat-slider>
+    <mat-slider thumbLabel
+                tickInterval="1"
+                min="1" max="100"
+                step="0.5" value="1.5"
+                name="age"
+                [(ngModel)]="user.age"></mat-slider>
 
     <mat-form-field>
-      <input matInput placeholder="Date of Birth">
+      <input matInput placeholder="Date of Birth" name="dateOfBirth" [(ngModel)]="user.dateOfBirth" required>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Gender">
+      <mat-select placeholder="Gender" required="true">
         <mat-option *ngFor="let gender of genders" [value]="gender.value">
           {{ gender.viewValue }}
         </mat-option>
@@ -28,24 +34,24 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Telephone Number">
+      <input matInput placeholder="Telephone Number" name="telephoneNumber" [(ngModel)]="user.telephoneNumber" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Email Address">
+      <input matInput placeholder="Email Address" name="emailAddress" [(ngModel)]="user.emailAddress" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Username">
+      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Password">
+      <input matInput placeholder="Password" name="password" [(ngModel)]="user.password" required>
     </mat-form-field>
-
+    </form>
   </div>
   <div class="button-wrapper">
-    <button class="alice" (click)="register()" mat-button>Register</button>
+    <button class="alice" (click)="register()" [disabled]="createForm.form.invalid" mat-button>Register</button>
     <button class="alice" (click)="cancel()" mat-button>Cancel</button>
   </div>
 </div>
