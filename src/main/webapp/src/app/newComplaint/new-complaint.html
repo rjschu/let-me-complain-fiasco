@@ -1,1 +1,7 @@
-Hello new complaint
+<div class="outer-container">
+    <mat-form-field>
+        <select placeholder="Type of complaint">
+            <option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</option>
+        </select>
+    </mat-form-field>
+</div>

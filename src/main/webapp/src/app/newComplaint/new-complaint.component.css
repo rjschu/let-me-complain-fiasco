@@ -1,0 +1,17 @@
+.outer-container {
+    border: 1px solid rgba(0,0,0,.03);
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+    margin: 50px auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.mat-select-panel {
+    min-width: 112px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 256px;
+    min-width: 100%;
+}
