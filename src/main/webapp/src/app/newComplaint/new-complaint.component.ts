@@ -9,10 +9,10 @@ import {Component} from "@angular/core";
 export class NewComplaintComponent {
 
     typesOfComplaint = [
-        "Letting of Steam",
+        "Letting off Steam",
         "Just Angry",
-        "The bad person said mean things to me",
-        "Bored, so you decided to make a fake complaint",
+        "Bad person said mean things",
+        "Im just bored",
         "Genuine Complaint"
     ]
 
