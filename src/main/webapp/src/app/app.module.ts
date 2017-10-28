@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import * as materialModule from "@angular/material";
 import {RouterModule, Routes} from "@angular/router";
-import {NewUserComponent} from "app/newUser/new-user.component";
 import {NewComplaintComponent} from "./newComplaint/new-complaint.component";
 import { LoginComponent } from './login/login.component';
+import {NewUserComponent} from "./new-user/new-user.component";
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -38,6 +38,7 @@ const appRoutes: Routes = [
       materialModule.MatInputModule,
       materialModule.MatSelectModule,
       materialModule.MatOptionModule,
+      materialModule.MatSliderModule,
       RouterModule.forRoot(
           appRoutes,
           { enableTracing: true } // <-- debugging purposes only

@@ -1,0 +1,42 @@
+.test {
+    flex: 1 1 auto;
+}
+
+.outer-container {
+    border: 1px solid rgba(0,0,0,.03);
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+    margin: 50px auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 10px 30px;
+}
+
+.example-container > * {
+    width: 100%;
+}
+
+.button-wrapper {
+    padding: 0 0 10px 30px;
+}
+
+.alice {
+    display: block;
+    padding: 0 0 10px 0;
+    color: white;
+}
+
+.link-button {
+    background:none!important;
+    color:dodgerblue;
+    border:none;
+    padding:0!important;
+    font: inherit;
+    border-bottom:1px solid #444;
+    cursor: pointer;
+}
+
