@@ -2,6 +2,7 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 src/main/webapp/node_modules/**/*
+classes
 
 ### STS ###
 .apt_generated
