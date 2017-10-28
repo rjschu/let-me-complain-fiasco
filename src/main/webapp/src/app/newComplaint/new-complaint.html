@@ -1,7 +1,16 @@
 <div class="outer-container">
     <mat-form-field>
-        <mat-select placeholder="Type of complaint">
+        <mat-select [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
             <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
         </mat-select>
     </mat-form-field>
+
+    <div *ngIf="selectedtypeOfComplaint == 'Just Angry'">
+        <iframe width="560" height="315" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div *ngIf="selectedtypeOfComplaint == 'Genuine Complaint' || !selectedtypeOfComplaint">
+            test
+    </div>
+
 </div>

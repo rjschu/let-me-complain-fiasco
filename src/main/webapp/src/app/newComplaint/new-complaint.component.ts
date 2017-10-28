@@ -1,5 +1,6 @@
 
 import {Component} from "@angular/core";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'new-complaint',
@@ -8,12 +9,17 @@ import {Component} from "@angular/core";
 })
 export class NewComplaintComponent {
 
+
+    constructor(private sanatizer : DomSanitizer) {
+    }
+
     typesOfComplaint = [
-        "Letting off Steam",
         "Just Angry",
-        "Bad person said mean things",
-        "Im just bored",
         "Genuine Complaint"
     ]
+
+    getCatVideoURL(){
+        return this.sanatizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/smNX8yj1j8o?rel=0&amp;controls=0&amp;showinfo=0");
+    }
 
 }
