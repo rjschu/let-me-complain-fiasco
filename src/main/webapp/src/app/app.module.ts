@@ -11,6 +11,7 @@ import {NewComplaintComponent} from "./newComplaint/new-complaint.component";
 import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
+import {DatePipe} from "@angular/common";
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -40,13 +41,15 @@ const appRoutes: Routes = [
       materialModule.MatSelectModule,
       materialModule.MatOptionModule,
       materialModule.MatSliderModule,
+      materialModule.MatDatepickerModule,
+      materialModule.MatNativeDateModule,
       RouterModule.forRoot(
           appRoutes,
           { enableTracing: true } // <-- debugging purposes only
       )
 
   ],
-  providers: [NewUserService],
+  providers: [NewUserService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

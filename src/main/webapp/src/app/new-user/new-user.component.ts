@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {NewUserService} from "./new-user.service";
 import {User} from "../domain/User";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-new-user',
@@ -14,18 +15,21 @@ export class NewUserComponent implements OnInit {
   form;
 
   constructor(private router: Router,
-              private userService: NewUserService) { }
+              private userService: NewUserService,
+              private datePipe: DatePipe) { }
 
   ngOnInit() {
   }
 
   register () {
-    this.userService.createUser(this.user);
-    this.router.navigate(['login']);
+    this.user.dateOfBirth = this.datePipe.transform(this.user.dateOfBirth, 'dd/MM/yyyy');
+    this.userService.createUser(this.user).subscribe(() => {
+      this.router.navigate(['login']);
+    })
   }
 
   cancel () {
-    this.register();
+      this.router.navigate(['login']);
   }
 
     genders = [
