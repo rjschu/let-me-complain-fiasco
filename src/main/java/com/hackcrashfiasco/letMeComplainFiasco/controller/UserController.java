@@ -3,6 +3,7 @@ package com.hackcrashfiasco.letMeComplainFiasco.controller;
 
 import com.hackcrashfiasco.letMeComplainFiasco.controller.exceptions.NotFoundException;
 import com.hackcrashfiasco.letMeComplainFiasco.domain.User;
+import com.hackcrashfiasco.letMeComplainFiasco.representations.CreateUserRepresentation;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.UserRepresentation;
 import com.hackcrashfiasco.letMeComplainFiasco.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public UserRepresentation createUser(@RequestBody UserRepresentation userToCreate){
+    public UserRepresentation createUser(@RequestBody CreateUserRepresentation userToCreate){
         User createdUser = userService.createUser(new User(userToCreate));
         return new UserRepresentation(createdUser);
     }
