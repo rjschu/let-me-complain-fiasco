@@ -1,8 +1,11 @@
 package com.hackcrashfiasco.letMeComplainFiasco.enums;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Gender {
 
+    @JsonProperty("male")
     MALE,
-    FEMALE
-
+    @JsonProperty("female")
+    FEMALE;
 }

@@ -23,9 +23,12 @@ public class UserEntity {
     private LocalDate dateOfBirth;
     private Gender gender;
     private long telephoneNumber;
-
     @Indexed(unique = true)
     private String emailAddress;
+    private String password;
+
+    public UserEntity(){}
+
 
     public UserEntity(User user) {
         user.getId().ifPresent((id)->{
@@ -38,6 +41,7 @@ public class UserEntity {
         gender = user.getGender();
         telephoneNumber = user.getTelephoneNumber();
         emailAddress = user.getEmailAddress();
+        password = user.getPassword();
     }
 
     public ObjectId getId() {
@@ -72,6 +76,10 @@ public class UserEntity {
         return telephoneNumber;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public User toDomain() {
         if(this.id == null){
             return null;
@@ -86,6 +94,7 @@ public class UserEntity {
         user.setGender(gender);
         user.setTelephoneNumber(telephoneNumber);
         user.setEmailAddress(emailAddress);
+        user.setPassword(password);
 
         return user;
     }

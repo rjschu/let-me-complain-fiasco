@@ -1,6 +1,7 @@
 package com.hackcrashfiasco.letMeComplainFiasco.representations;
 
 import com.hackcrashfiasco.letMeComplainFiasco.domain.User;
+import com.hackcrashfiasco.letMeComplainFiasco.enums.Gender;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ public class UserRepresentation {
     private String surname;
     private int age;
     private LocalDate dateOfBirth;
-    private String gender;
+    private Gender gender;
     private long telephoneNumber;
     private String emailAddress;
 
@@ -24,7 +25,7 @@ public class UserRepresentation {
         surname = user.getSurname();
         age = user.getAge();
         dateOfBirth = user.getDateOfBirth();
-        gender = user.getGender().toString();
+        gender = user.getGender();
         telephoneNumber = user.getTelephoneNumber();
         emailAddress = user.getEmailAddress();
     }
@@ -50,7 +51,7 @@ public class UserRepresentation {
     }
 
     public String getGender() {
-        return gender;
+        return gender.toString().toLowerCase();
     }
 
     public long getTelephoneNumber() {
