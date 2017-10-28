@@ -19,7 +19,7 @@ export class NewComplaintComponent {
     ]
 
     getCatVideoURL(){
-        return this.sanatizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/smNX8yj1j8o?rel=0&amp;controls=0&amp;showinfo=0");
+        return this.sanatizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/smNX8yj1j8o?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1");
     }
 
 }

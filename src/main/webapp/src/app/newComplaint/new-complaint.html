@@ -10,7 +10,11 @@
     </div>
 
     <div *ngIf="selectedtypeOfComplaint == 'Genuine Complaint' || !selectedtypeOfComplaint">
-            test
+        <mat-form-field>
+            <mat-select [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
+                <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
 </div>
