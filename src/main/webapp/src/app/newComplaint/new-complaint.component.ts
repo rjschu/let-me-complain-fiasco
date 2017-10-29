@@ -65,6 +65,11 @@ export class NewComplaintComponent implements OnInit{
     this.findLocation()
   }
 
+  zoomChange(newZoom: number) {
+    this.mapLat = this.mapLat + 0.001;
+    this.mapLng = this.mapLng - 0.001;
+  }
+
   findLocation(): void {
     this.geoService.getLocation(this.mapPointerLat, this.mapPointerLng)
       .then(
