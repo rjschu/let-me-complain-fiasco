@@ -8,6 +8,6 @@ export class NewUserService {
   constructor(private http: Http) { }
 
   createUser (user: User) {
-    return this.http.post('/user', user);
+    return this.http.post('/api/user', user);
   }
 }
