@@ -29,6 +29,7 @@
         </mat-error>
       </mat-form-field>
 
+      <div *ngIf="selectedLocationType == 'Not Internet'" class="margin10"> Please locate the non internet location on the map provided below, then select the specific address from the dropdown </div>
       <agm-map *ngIf="selectedLocationType == 'Not Internet'" [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapClick)="mapClicked($event)" (zoomChange)="zoomChange($event)">
         <agm-marker [latitude]="mapPointerLat" [longitude]="mapPointerLng"></agm-marker>
       </agm-map>
@@ -39,9 +40,12 @@
       </mat-form-field>
 
       <mat-form-field >
-        <textarea matInput name="test" type="url" [(ngModel)]="selectedBusinessName" placeholder="Complaint Body"></textarea>
+        <textarea matInput name="test" type="url" [(ngModel)]="complaintBody" placeholder="Complaint Body"></textarea>
         <mat-hint align="end">Feel free to add all the irrelevent information you like </mat-hint>
       </mat-form-field>
+
+      <button></button>
+
     </div>
   </div>
 </form>
