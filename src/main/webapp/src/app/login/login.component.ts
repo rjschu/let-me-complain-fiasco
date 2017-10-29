@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     login () {
 
       let dialogRef = this.dialog.open(ReliantCaptchaComponent, {
-        width: '250px'
       });
 
       dialogRef.afterClosed().subscribe(result => {

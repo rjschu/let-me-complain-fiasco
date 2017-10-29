@@ -1,3 +1,59 @@
-<div mat-dialog-actions>
-  <button mat-button (click)="submitCaptcha()" tabindex="2">Submit</button>
+<div>
+  <div>
+    To prove you are not a robot pleas complete the following simple task :
+  </div>
+  <div>
+    Select the 3 images that contain a Reliant Robin
+  </div>
+  <div>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Trotters.jpg" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Reliant_Regal_3-25.jpg" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(true)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Relaint_Robin_Estate_ca_1974.JPG"  width="300" height="200">
+      </button>
+    </span>
+  </div>
+  <div>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Reliant_Regal_3-30.jpg" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(true)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Relaint_Robin_ca_1974_green_in_Ely.JPG" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="http://www.3wheelers.com/RAYSREGAL.jpg" width="300" height="200">
+      </button>
+    </span>
+  </div>
+  <div>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="https://c1.staticflickr.com/9/8593/15821233376_1e5de04cf2_b.jpg" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(false)">
+        <img src="http://pics.imcdb.org/0is78/regal2lo7.7130.jpg" width="300" height="200">
+      </button>
+    </span>
+    <span>
+      <button (click)="selectImage(true)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/KIF_0001_reg.JPG"  width="300" height="200">
+      </button>
+    </span>
+  </div>
 </div>
