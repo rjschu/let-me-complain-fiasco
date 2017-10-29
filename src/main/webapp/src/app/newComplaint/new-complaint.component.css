@@ -29,3 +29,7 @@ agm-map {
 .example-container > * {
   width: 100%;
 }
+
+.margin10 {
+  margin: 10px;
+}
