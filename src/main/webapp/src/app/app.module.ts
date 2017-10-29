@@ -15,6 +15,7 @@ import {DatePipe} from "@angular/common";
 import {GeoService} from "./newComplaint/geo.service";
 import {AgmCoreModule} from "@agm/core";
 import {LoginService} from "./login/login.service";
+import { ReliantCaptchaComponent } from './reliant-captcha/reliant-captcha.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     NewComplaintComponent,
     NewUserComponent,
-    LoginComponent
+    LoginComponent,
+    ReliantCaptchaComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
       materialModule.MatOptionModule,
       materialModule.MatSliderModule,
       materialModule.MatDatepickerModule,
+      materialModule.MatDialogModule,
       materialModule.MatNativeDateModule,AgmCoreModule.forRoot({
       apiKey: 'AIzaSyArXDiXNTb5Enn5tRZQwdr-MhYt5WAuQYg'
     }),
@@ -53,6 +56,9 @@ const appRoutes: Routes = [
           { enableTracing: true } // <-- debugging purposes only
       )
 
+  ],
+  entryComponents: [
+    ReliantCaptchaComponent
   ],
   providers: [
     NewUserService, DatePipe,
