@@ -13,25 +13,30 @@
 
     <div>
       <mat-form-field>
-        <mat-select name="test" required [(ngModel)]="selectedLocation" placeholder="Location">
+        <mat-select name="test" required [(ngModel)]="selectedLocationType" placeholder="Location">
           <mat-option *ngFor="let type of typesOfLocation" [value]="type">{{ type }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <div *ngIf="selectedLocation == 'Internet'">
+    <div *ngIf="selectedLocationType == 'Internet'">
       <mat-form-field >
-        <input name="test" [formControl]="complaintLocationURLFormControl" matInput type="url" placeholder="Internet Place:" >
+        <input name="test" [formControl]="complaintLocationURLFormControl" matInput type="url" [(ngModel)]="selectedURLLocation" placeholder="Internet Place:" >
         <mat-error *ngIf="complaintLocationURLFormControl.hasError('required')">
           Please enter a valid internet address
         </mat-error>
       </mat-form-field>
     </div>
 
-    <div *ngIf="selectedLocation == 'Not Internet'">
+    <div *ngIf="selectedLocationType == 'Not Internet'">
       <agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapClick)="mapClicked($event)">
         <agm-marker [latitude]="mapPointerLat" [longitude]="mapPointerLng"></agm-marker>
       </agm-map>
+      <mat-form-field>
+        <mat-select name="test" required [(ngModel)]="selectedAddressLocation" placeholder="Address">
+          <mat-option *ngFor="let address of reverseGeocodedAddressList" [value]="address.formatted_address">{{ address.formatted_address }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
   </div>

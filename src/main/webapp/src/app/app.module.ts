@@ -13,6 +13,7 @@ import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
 import {DatePipe} from "@angular/common";
 import {AgmCoreModule} from "@agm/core";
+import {GeoService} from "./newComplaint/geo.service";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
     materialModule.MatDatepickerModule,
     materialModule.MatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDyf33DQnrhprM-Su1xjSo7-3w-t9qHI9U'
+      apiKey: 'AIzaSyArXDiXNTb5Enn5tRZQwdr-MhYt5WAuQYg'
     }),
     RouterModule.forRoot(
       appRoutes,
@@ -54,7 +55,7 @@ const appRoutes: Routes = [
     )
 
   ],
-  providers: [NewUserService, DatePipe],
+  providers: [NewUserService, DatePipe, GeoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
