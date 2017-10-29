@@ -1,16 +1,16 @@
 <div class="outer-container">
     <form #createForm="ngForm">
   <div class="example-container">
-    <mat-form-field>
-      <input matInput placeholder="Full Name" required>
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="Full Name" (keyup)="moveIt()" required>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="First Name" name="firstName" [(ngModel)]="user.firstName" required>
+    <mat-form-field [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="First Name" name="firstName" (keyup)="moveIt()" [(ngModel)]="user.firstName" required>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Surname" name="surname" [(ngModel)]="user.surname">
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="Surname" name="surname" (keyup)="moveIt()" [(ngModel)]="user.surname" required>
     </mat-form-field>
 
     Age
@@ -21,8 +21,8 @@
                 name="age"
                 [(ngModel)]="user.age"></mat-slider>
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required>
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" (keyup)="moveIt()" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -35,20 +35,16 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Telephone Number" name="telephoneNumber" [(ngModel)]="user.telephoneNumber" required>
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="Telephone Number" name="telephoneNumber" [(ngModel)]="user.telephoneNumber" (keyup)="moveIt()" required>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Email Address" name="emailAddress" [(ngModel)]="user.emailAddress" required>
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="Email Address" name="emailAddress" [(ngModel)]="user.emailAddress" (keyup)="moveIt()" required>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username" required>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Password" name="password" [(ngModel)]="user.password" type="password" required>
+    <mat-form-field  [ngClass]="{'move':moving===true}">
+      <input matInput placeholder="Password" name="password" [(ngModel)]="user.password" type="password" (keyup)="moveIt()" required>
     </mat-form-field>
   </div>
     </form>

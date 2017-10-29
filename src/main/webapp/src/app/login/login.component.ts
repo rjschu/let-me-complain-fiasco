@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {LoginService} from "./login.service";
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,24 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  email: string;
+  password: string;
+  authFailed: boolean = false;
+
+  constructor(private router: Router,
+              private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
 
     login () {
-        this.router.navigate(["new-complaint"]);
+        this.loginService.login({emailAddress: this.email, password: this.password})
+          .subscribe((data)=>{
+            console.log(data);
+            //this.router.navigate(["new-complaint"]);
+          },
+            () => {this.authFailed = true;});
     }
 
     goToNewUser () {

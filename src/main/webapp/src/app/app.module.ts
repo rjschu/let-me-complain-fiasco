@@ -12,28 +12,30 @@ import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
 import {DatePipe} from "@angular/common";
+import {GeoService} from "./newComplaint/geo.service";
+import {AgmCoreModule} from "@agm/core";
+import {LoginService} from "./login/login.service";
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'new-user', component: NewUserComponent },
-    { path: 'new-complaint', component: NewComplaintComponent },
-    { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'login', component: LoginComponent },
+  { path: 'new-user', component: NewUserComponent },
+  { path: 'new-complaint', component: NewComplaintComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-      NewComplaintComponent,
-      NewUserComponent,
-      LoginComponent
+    NewComplaintComponent,
+    NewUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule,
-      BrowserAnimationsModule,
+      ReactiveFormsModule,BrowserAnimationsModule,
       materialModule.MatButtonModule,
       materialModule.MatCheckboxModule,
       materialModule.MatToolbarModule,
@@ -43,14 +45,19 @@ const appRoutes: Routes = [
       materialModule.MatOptionModule,
       materialModule.MatSliderModule,
       materialModule.MatDatepickerModule,
-      materialModule.MatNativeDateModule,
+      materialModule.MatNativeDateModule,AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyArXDiXNTb5Enn5tRZQwdr-MhYt5WAuQYg'
+    }),
       RouterModule.forRoot(
           appRoutes,
           { enableTracing: true } // <-- debugging purposes only
       )
 
   ],
-  providers: [NewUserService, DatePipe],
+  providers: [
+    NewUserService, DatePipe,
+    GeoService, LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
