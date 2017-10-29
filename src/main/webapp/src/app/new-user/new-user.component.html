@@ -10,7 +10,7 @@
     </mat-form-field>
 
     <mat-form-field  [ngClass]="{'move':moving===true}">
-      <input matInput placeholder="Surname" name="surname" (keyup)="moveIt()" [(ngModel)]="user.surname">
+      <input matInput placeholder="Surname" name="surname" (keyup)="moveIt()" [(ngModel)]="user.surname" required>
     </mat-form-field>
 
     Age
@@ -49,7 +49,7 @@
   </div>
     </form>
   <div class="button-wrapper">
-    <button class="alice" (keyup)="register()" [disabled]="createForm.form.invalid" mat-button>Register</button>
-    <button class="alice" (keyup)="cancel()" mat-button>Cancel</button>
+    <button class="alice" (click)="register()" [disabled]="createForm.form.invalid" mat-button>Register</button>
+    <button class="alice" (click)="cancel()" mat-button>Cancel</button>
   </div>
 </div>

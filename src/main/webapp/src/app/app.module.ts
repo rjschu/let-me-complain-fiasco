@@ -12,8 +12,9 @@ import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
 import {DatePipe} from "@angular/common";
-import {AgmCoreModule} from "@agm/core";
 import {GeoService} from "./newComplaint/geo.service";
+import {AgmCoreModule} from "@agm/core";
+import {LoginService} from "./login/login.service";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -53,7 +54,10 @@ const appRoutes: Routes = [
       )
 
   ],
-  providers: [NewUserService, DatePipe, GeoService],
+  providers: [
+    NewUserService, DatePipe,
+    GeoService, LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

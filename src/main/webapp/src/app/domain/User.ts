@@ -8,7 +8,7 @@ export class User {
     age : number;
     dateOfBirth : string;
     gender : string;
-    telephoneNumber : number;
+    telephoneNumber : string;
     emailAddress : string;
     password : string;
 

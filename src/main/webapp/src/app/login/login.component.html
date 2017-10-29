@@ -1,12 +1,16 @@
 <div class="outer-container">
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Username">
+      <input matInput placeholder="Username" name="username" [(ngModel)]="email">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Password">
+      <input matInput placeholder="Password" name="password" [(ngModel)]="password">
     </mat-form-field>
+
+    <div *ngIf="authFailed">
+      <span>WRONG</span>
+    </div>
 
   </div>
   <div class="button-wrapper">
