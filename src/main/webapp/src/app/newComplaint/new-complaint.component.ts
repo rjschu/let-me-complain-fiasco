@@ -26,6 +26,7 @@ export class NewComplaintComponent implements OnInit{
   reverseGeocodedAddressList : string[];
   complaint: object = {};
   success: boolean = false;
+  locationValue: string;
 
   ngOnInit(): void {
     this.mapLat = 53.4773408;
