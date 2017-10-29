@@ -40,3 +40,9 @@
     cursor: pointer;
 }
 
+h1 {
+  padding: 5px;
+  color: red;
+  width: 100%;
+  text-align: center;
+}
