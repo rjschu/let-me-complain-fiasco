@@ -1,4 +1,4 @@
-<div class="outer-container">
+<div *ngIf="!twoFactor && !authFailed" class="outer-container">
   <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="Username" name="username" [(ngModel)]="email">
@@ -8,13 +8,25 @@
       <input matInput placeholder="Password" name="password" [(ngModel)]="password">
     </mat-form-field>
 
-    <div *ngIf="authFailed">
-      <span>WRONG</span>
-    </div>
-
   </div>
   <div class="button-wrapper">
     <button class="alice" (click)="login()" mat-raised-button>Login</button>
     <button class="link-button" (click)="goToNewUser()" mat-button>Create new user</button>
   </div>
+</div>
+
+<div *ngIf="twoFactor && !authFailed" class="outer-container">
+  <div class="example-container">
+    <span>We need to confirm its you</span>
+    <mat-form-field>
+      <input matInput placeholder="Two factor auth code" name="twoFactorAuth" [(ngModel)]="twoFactorAuth" required>
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button class="alice" (click)="checkAuth()" mat-raised-button>Submit</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="authFailed">
+  <span>WRONG</span>
 </div>

@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {LoginService} from "./login.service";
 import {MatDialog} from "@angular/material";
 import {ReliantCaptchaComponent} from "../reliant-captcha/reliant-captcha.component";
+import {Response} from "@angular/http";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,10 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   authFailed: boolean = false;
+  twoFactor: boolean = false;
+  twoFactorAuth: string;
+  text: string;
+  json: object;
 
   constructor(private router: Router,
               private loginService: LoginService,
@@ -35,13 +40,23 @@ export class LoginComponent implements OnInit {
 
         if (passedCaptcha){
           this.loginService.login({emailAddress: this.email, password: this.password})
-            .subscribe((data)=>{
-                console.log(data);
-                //this.router.navigate(["new-complaint"]);
+            .subscribe((data: Response)=>{
+                this.twoFactor = true;
+                this.text = data.text();
+                this.json = JSON.parse(atob(this.text.split('.')[1]));
               },
               () => {this.authFailed = true;});
         }
       });
+    }
+
+    checkAuth () {
+      this.loginService
+        .checkAuth({telephoneNumber: JSON.parse(this.json['sub']).telephoneNumber, code: this.twoFactorAuth, emailAddress: this.email}, this.text)
+        .subscribe(() => {
+          this.router.navigate(["new-complaint"]);
+        },
+          () => {this.authFailed = true;});
     }
 
     goToNewUser () {
