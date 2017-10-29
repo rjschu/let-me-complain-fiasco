@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hackcrashfiasco.letMeComplainFiasco.configuration.AuthConfig;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.AuthorisationToken;
+import com.hackcrashfiasco.letMeComplainFiasco.representations.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class JWTService {
         algorithm = Algorithm.HMAC256("secret".getBytes());
     }
 
-    public String generateToken(AuthorisationToken payload) {
+    public String generateToken(Token payload) {
         Date date = Date.from(LocalDateTime.now().plusHours(1l).toInstant(ZoneOffset.UTC));
         try {
             String stringPayload = objectMapper.writeValueAsString(payload);

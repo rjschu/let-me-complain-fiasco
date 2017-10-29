@@ -29,4 +29,7 @@ public class UserService {
     }
 
 
+    public User findUserByTelephoneNumber(long telephoneNumber) {
+        return userRepository.findUserByTelephoneNumber(telephoneNumber).map(UserEntity::toDomain).orElseThrow(NotFoundException::new);
+    }
 }
