@@ -16,6 +16,7 @@ import {GeoService} from "./newComplaint/geo.service";
 import {AgmCoreModule} from "@agm/core";
 import {LoginService} from "./login/login.service";
 import { ReliantCaptchaComponent } from './reliant-captcha/reliant-captcha.component';
+import {NewComplaintService} from "./newComplaint/new-complaint.service";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     NewUserService, DatePipe,
-    GeoService, LoginService
+    GeoService, LoginService,
+    NewComplaintService
   ],
   bootstrap: [AppComponent]
 })

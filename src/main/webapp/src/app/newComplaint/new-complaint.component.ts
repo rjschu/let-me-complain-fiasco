@@ -3,6 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {DomSanitizer} from "@angular/platform-browser";
 import {FormControl, Validators} from "@angular/forms";
 import {GeoService} from "app/newComplaint/geo.service";
+import {NewComplaintService} from "./new-complaint.service";
 
 @Component({
   selector: 'new-complaint',
@@ -23,6 +24,7 @@ export class NewComplaintComponent implements OnInit{
   typesOfLocation: string[];
 
   reverseGeocodedAddressList : string[];
+  complaint: object;
 
   ngOnInit(): void {
     this.mapLat = 53.4773408;
@@ -47,7 +49,7 @@ export class NewComplaintComponent implements OnInit{
   }
 
 
-  constructor(private sanatizer : DomSanitizer, private geoService : GeoService) {
+  constructor(private sanatizer : DomSanitizer, private geoService : GeoService, private complaintService: NewComplaintService) {
   }
 
   complaintLocationURLFormControl = new FormControl('', [
@@ -77,4 +79,7 @@ export class NewComplaintComponent implements OnInit{
       );
   }
 
+  submit() {
+      return this.complaintService.submitComplaint(this.complaint);
+  }
 }

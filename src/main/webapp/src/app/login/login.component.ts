@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
             .subscribe((data: Response)=>{
                 this.twoFactor = true;
                 this.text = data.text();
+                localStorage.setItem('authToken', this.text);
                 this.json = JSON.parse(atob(this.text.split('.')[1]));
               },
               () => {this.authFailed = true;});
