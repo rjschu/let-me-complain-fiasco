@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,12 +12,14 @@ import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
 import {DatePipe} from "@angular/common";
+import {AgmCoreModule} from "@agm/core";
+import {GeoService} from "./newComplaint/geo.service";
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'new-user', component: NewUserComponent },
-    { path: 'new-complaint', component: NewComplaintComponent },
-    { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'login', component: LoginComponent },
+  { path: 'new-user', component: NewUserComponent },
+  { path: 'new-complaint', component: NewComplaintComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
 
@@ -32,24 +34,26 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule,
-    materialModule.MatButtonModule,
-    materialModule.MatCheckboxModule,
-    materialModule.MatToolbarModule,
-    materialModule.MatFormFieldModule,
-    materialModule.MatInputModule,
-    materialModule.MatSelectModule,
-    materialModule.MatOptionModule,
-    materialModule.MatSliderModule,
-    materialModule.MatDatepickerModule,
-    materialModule.MatNativeDateModule,
-    RouterModule.forRoot(
-        appRoutes,
-        { enableTracing: true } // <-- debugging purposes only
-    )
+      ReactiveFormsModule,BrowserAnimationsModule,
+      materialModule.MatButtonModule,
+      materialModule.MatCheckboxModule,
+      materialModule.MatToolbarModule,
+      materialModule.MatFormFieldModule,
+      materialModule.MatInputModule,
+      materialModule.MatSelectModule,
+      materialModule.MatOptionModule,
+      materialModule.MatSliderModule,
+      materialModule.MatDatepickerModule,
+      materialModule.MatNativeDateModule,AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyArXDiXNTb5Enn5tRZQwdr-MhYt5WAuQYg'
+    }),
+      RouterModule.forRoot(
+          appRoutes,
+          { enableTracing: true } // <-- debugging purposes only
+      )
 
   ],
-  providers: [NewUserService, DatePipe],
+  providers: [NewUserService, DatePipe, GeoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

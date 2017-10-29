@@ -4,7 +4,7 @@ import com.hackcrashfiasco.letMeComplainFiasco.domain.User;
 
 import java.time.LocalDate;
 
-public class AuthorisationToken {
+public class AuthorisationToken implements Token {
 
 
     private final String firstName;
@@ -12,6 +12,7 @@ public class AuthorisationToken {
     private final int age;
     private final LocalDate dateOfBirth;
     private final String emailAddress;
+    private final long telephoneNumber;
 
     public AuthorisationToken(User user) {
         firstName = user.getFirstName();
@@ -19,6 +20,7 @@ public class AuthorisationToken {
         age = user.getAge();
         dateOfBirth = user.getDateOfBirth();
         emailAddress = user.getEmailAddress();
+        telephoneNumber = user.getTelephoneNumber();
     }
 
     public String getFirstName() {
@@ -40,4 +42,9 @@ public class AuthorisationToken {
     public String getEmailAddress() {
         return emailAddress;
     }
+
+    public long getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
 }

@@ -15,3 +15,7 @@
     max-height: 256px;
     min-width: 100%;
 }
+
+agm-map {
+  height: 300px;
+}
