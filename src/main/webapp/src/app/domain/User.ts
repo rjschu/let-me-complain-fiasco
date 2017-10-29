@@ -1,6 +1,8 @@
 
 
 export class User {
+
+
     firstName : string;
     surname : string;
     age : number;
@@ -8,7 +10,6 @@ export class User {
     gender : string;
     telephoneNumber : number;
     emailAddress : string;
-    username : string;
     password : string;
 
 
@@ -21,7 +22,6 @@ export class User {
             this.gender = data['gender'];
             this.telephoneNumber = data['telephoneNumber'];
             this.emailAddress = data['emailAddress'];
-            this.username = data['username'];
             this.password = data['password'];
         }
     }

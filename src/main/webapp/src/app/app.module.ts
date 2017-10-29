@@ -24,29 +24,29 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-      NewComplaintComponent,
-      NewUserComponent,
-      LoginComponent
+    NewComplaintComponent,
+    NewUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-      BrowserAnimationsModule,
-      materialModule.MatButtonModule,
-      materialModule.MatCheckboxModule,
-      materialModule.MatToolbarModule,
-      materialModule.MatFormFieldModule,
-      materialModule.MatInputModule,
-      materialModule.MatSelectModule,
-      materialModule.MatOptionModule,
-      materialModule.MatSliderModule,
-      materialModule.MatDatepickerModule,
-      materialModule.MatNativeDateModule,
-      RouterModule.forRoot(
-          appRoutes,
-          { enableTracing: true } // <-- debugging purposes only
-      )
+    BrowserAnimationsModule,
+    materialModule.MatButtonModule,
+    materialModule.MatCheckboxModule,
+    materialModule.MatToolbarModule,
+    materialModule.MatFormFieldModule,
+    materialModule.MatInputModule,
+    materialModule.MatSelectModule,
+    materialModule.MatOptionModule,
+    materialModule.MatSliderModule,
+    materialModule.MatDatepickerModule,
+    materialModule.MatNativeDateModule,
+    RouterModule.forRoot(
+        appRoutes,
+        { enableTracing: true } // <-- debugging purposes only
+    )
 
   ],
   providers: [NewUserService, DatePipe],

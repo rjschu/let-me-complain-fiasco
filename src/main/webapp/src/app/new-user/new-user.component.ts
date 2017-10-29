@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Router} from "@angular/router";
 import {NewUserService} from "./new-user.service";
 import {User} from "../domain/User";
@@ -12,13 +12,14 @@ import {DatePipe} from "@angular/common";
 export class NewUserComponent implements OnInit {
 
   user: User = new User();
-  form;
+  moving = false;
 
   constructor(private router: Router,
               private userService: NewUserService,
               private datePipe: DatePipe) { }
 
   ngOnInit() {
+
   }
 
   register () {
@@ -30,6 +31,10 @@ export class NewUserComponent implements OnInit {
 
   cancel () {
       this.router.navigate(['login']);
+  }
+
+  moveIt () {
+    this.moving = !this.moving;
   }
 
     genders = [

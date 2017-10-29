@@ -40,3 +40,18 @@
     cursor: pointer;
 }
 
+.move {
+  animation-delay: 0s;
+  animation-duration: 2s;
+  animation-name: slideshow1;
+}
+
+@keyframes slideshow1 {
+  0%    { left: 0; }
+  100%   { left: 200%; }
+}
+
+@keyframes slideshow2 {
+  0%    { left: -200%; }
+  100%   { left: 0%; }
+}
