@@ -13,10 +13,17 @@ public class ComplaintRepresentation {
     private String link;
     private Map<String, Float> latLng;
     private String content;
+    private String userId;
 
     public ComplaintRepresentation(){}
 
     public ComplaintRepresentation(Complaint complaint) {
+        id = complaint.getId().orElseThrow(RuntimeException::new);
+        complaintType = complaint.getComplaintType();
+        locationType  = complaint.getLocationType();
+        link = complaint.getLink();
+        latLng = complaint.getLatLng();
+        content = complaint.getContent();
 
     }
 
@@ -44,5 +51,9 @@ public class ComplaintRepresentation {
 
     public String getContent() {
         return content;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

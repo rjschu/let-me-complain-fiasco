@@ -27,6 +27,9 @@ public class AuthorisationInterceptor extends HandlerInterceptorAdapter {
             if(header != null){
                 try {
                     jwtService.validateToken(header);
+                    if(!request.getPathInfo().contains("two-factor")){
+                        jwtService.setCurrentUser(header);
+                    }
                 }catch(JWTVerificationException ex){
                     throw new NotAuthorisedException();
                 }

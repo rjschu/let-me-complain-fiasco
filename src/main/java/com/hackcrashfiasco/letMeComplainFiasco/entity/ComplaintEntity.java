@@ -18,6 +18,7 @@ public class ComplaintEntity {
     private String link;
     private Map<String, Float> latLng;
     private String content;
+    private String userId;
 
 
     public ComplaintEntity(Complaint complaint) {
@@ -28,7 +29,7 @@ public class ComplaintEntity {
         link = complaint.getLink();
         latLng = complaint.getLatLng();
         content = complaint.getContent();
-
+        userId = complaint.getUserId();
     }
 
     public ObjectId getId() {
@@ -55,6 +56,10 @@ public class ComplaintEntity {
         return content;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public Complaint toDomain(){
 
         Complaint complaint = new Complaint();
@@ -64,6 +69,8 @@ public class ComplaintEntity {
         complaint.setLocationType(locationType);
         complaint.setLatLng(latLng);
         complaint.setLink(link);
+        complaint.setContent(content);
+        complaint.setUserId(userId);
 
         return complaint;
     }

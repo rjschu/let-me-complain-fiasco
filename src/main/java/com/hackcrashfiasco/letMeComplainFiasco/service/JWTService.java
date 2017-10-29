@@ -3,14 +3,18 @@ package com.hackcrashfiasco.letMeComplainFiasco.service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hackcrashfiasco.letMeComplainFiasco.configuration.AuthConfig;
+import com.hackcrashfiasco.letMeComplainFiasco.domain.User;
+import com.hackcrashfiasco.letMeComplainFiasco.filter.CurrentUserStorage;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.AuthorisationToken;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Date;
@@ -48,4 +52,9 @@ public class JWTService {
         verifier.verify(token);
     }
 
+    public void setCurrentUser(String token) throws IOException {
+        JWT jwt = JWT.decode(token);
+        User user = objectMapper.readValue(jwt.getSubject(),User.class);
+        CurrentUserStorage.setCurrentUser(user);
+    }
 }

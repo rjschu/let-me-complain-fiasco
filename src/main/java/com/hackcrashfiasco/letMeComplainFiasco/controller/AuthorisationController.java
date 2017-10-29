@@ -34,6 +34,7 @@ public class AuthorisationController {
     public String authenticate(@RequestBody AuthenticationRepresentation authenticationRepresentation){
         User token = authorisationService.authenticateUser(authenticationRepresentation);
         final TwoFactor twoFactor = twoFactorService.sendInitialTwoFactorSms(token.getTelephoneNumber());
+        twoFactor.setEmailAddress(token.getEmailAddress());
 
         return jwtService.generateToken(twoFactor);
     }

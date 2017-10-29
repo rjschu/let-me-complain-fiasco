@@ -13,6 +13,7 @@ public class Complaint {
     private Map<String, Float> latLng;
     private String link;
     private String content;
+    private String userId;
 
     public Complaint(ComplaintRepresentation complaintRepresentation) {
         complaintType = complaintRepresentation.getComplaintType();
@@ -20,6 +21,7 @@ public class Complaint {
         latLng = complaintRepresentation.getLatLng();
         link = complaintRepresentation.getLink();
         content = complaintRepresentation.getContent();
+        userId = complaintRepresentation.getUserId();
     }
 
     public Complaint() {
@@ -68,5 +70,17 @@ public class Complaint {
 
     public String getContent() {
         return content;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

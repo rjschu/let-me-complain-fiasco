@@ -1,10 +1,12 @@
 package com.hackcrashfiasco.letMeComplainFiasco.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.Token;
 
 public class TwoFactor implements Token {
 
     private long telephoneNumber;
+    @JsonIgnore
     private String code;
     private String emailAddress;
 
