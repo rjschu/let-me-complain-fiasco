@@ -25,6 +25,10 @@ public class AuthorisationToken implements Token {
         id = user.getId().orElseThrow(RuntimeException::new);
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }

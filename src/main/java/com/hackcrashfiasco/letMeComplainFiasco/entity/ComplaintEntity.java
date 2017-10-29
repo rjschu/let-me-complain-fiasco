@@ -6,6 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Document(collection = "complaint")
@@ -16,10 +17,13 @@ public class ComplaintEntity {
     private String complaintType;
     private LocationType locationType;
     private String link;
+    private String businessName;
     private Map<String, Float> latLng;
     private String content;
     private String userId;
+    private LocalDateTime dateRegistered = LocalDateTime.now();
 
+    public ComplaintEntity(){}
 
     public ComplaintEntity(Complaint complaint) {
 
@@ -30,6 +34,7 @@ public class ComplaintEntity {
         latLng = complaint.getLatLng();
         content = complaint.getContent();
         userId = complaint.getUserId();
+        businessName = complaint.getBusinessName();
     }
 
     public ObjectId getId() {
@@ -60,6 +65,14 @@ public class ComplaintEntity {
         return userId;
     }
 
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public LocalDateTime getDateRegistered() {
+        return dateRegistered;
+    }
+
     public Complaint toDomain(){
 
         Complaint complaint = new Complaint();
@@ -71,6 +84,8 @@ public class ComplaintEntity {
         complaint.setLink(link);
         complaint.setContent(content);
         complaint.setUserId(userId);
+        complaint.setBusinessName(businessName);
+        complaint.setDateRegistered(dateRegistered);
 
         return complaint;
     }

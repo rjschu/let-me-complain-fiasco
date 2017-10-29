@@ -3,6 +3,7 @@ package com.hackcrashfiasco.letMeComplainFiasco.domain;
 import com.hackcrashfiasco.letMeComplainFiasco.enums.LocationType;
 import com.hackcrashfiasco.letMeComplainFiasco.representations.ComplaintRepresentation;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
 
@@ -10,14 +11,17 @@ public class Complaint {
     private String id;
     private String complaintType;
     private LocationType locationType;
+    private String businessName;
     private Map<String, Float> latLng;
     private String link;
     private String content;
     private String userId;
+    private LocalDateTime dateRegistered;
 
     public Complaint(ComplaintRepresentation complaintRepresentation) {
         complaintType = complaintRepresentation.getComplaintType();
         locationType = complaintRepresentation.getLocationType();
+        businessName = complaintRepresentation.getBusinessName();
         latLng = complaintRepresentation.getLatLng();
         link = complaintRepresentation.getLink();
         content = complaintRepresentation.getContent();
@@ -82,5 +86,21 @@ public class Complaint {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+
+    public LocalDateTime getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public void setDateRegistered(LocalDateTime dateRegistered) {
+        this.dateRegistered = dateRegistered;
     }
 }

@@ -3,10 +3,12 @@ package com.hackcrashfiasco.letMeComplainFiasco.representations;
 import com.hackcrashfiasco.letMeComplainFiasco.domain.Complaint;
 import com.hackcrashfiasco.letMeComplainFiasco.enums.LocationType;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 public class ComplaintRepresentation {
 
+    private LocalDateTime dateRegistered;
     private String id;
     private String complaintType;
     private LocationType locationType;
@@ -14,6 +16,7 @@ public class ComplaintRepresentation {
     private Map<String, Float> latLng;
     private String content;
     private String userId;
+    private String businessName;
 
     public ComplaintRepresentation(){}
 
@@ -24,13 +27,17 @@ public class ComplaintRepresentation {
         link = complaint.getLink();
         latLng = complaint.getLatLng();
         content = complaint.getContent();
-
+        userId = complaint.getUserId();
+        businessName = complaint.getBusinessName();
+        dateRegistered = complaint.getDateRegistered();
     }
 
-    public Complaint toDomain(){
+    public LocalDateTime getDateRegistered() {
+        return dateRegistered;
+    }
 
-        return null;
-
+    public String getId() {
+        return id;
     }
 
     public String getComplaintType() {
@@ -55,5 +62,9 @@ public class ComplaintRepresentation {
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getBusinessName() {
+        return businessName;
     }
 }

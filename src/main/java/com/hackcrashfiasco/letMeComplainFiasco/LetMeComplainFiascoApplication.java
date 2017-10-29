@@ -19,7 +19,7 @@ public class LetMeComplainFiascoApplication extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(authorisationInteceptor);
+		registry.addInterceptor(authorisationInteceptor);
 	}
 
 }
