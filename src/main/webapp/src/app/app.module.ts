@@ -12,42 +12,46 @@ import { LoginComponent } from './login/login.component';
 import {NewUserComponent} from "./new-user/new-user.component";
 import {NewUserService} from "./new-user/new-user.service";
 import {DatePipe} from "@angular/common";
+import {AgmCoreModule} from "@agm/core";
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'new-user', component: NewUserComponent },
-    { path: 'new-complaint', component: NewComplaintComponent },
-    { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'login', component: LoginComponent },
+  { path: 'new-user', component: NewUserComponent },
+  { path: 'new-complaint', component: NewComplaintComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-      NewComplaintComponent,
-      NewUserComponent,
-      LoginComponent
+    NewComplaintComponent,
+    NewUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-      BrowserAnimationsModule,
-      materialModule.MatButtonModule,
-      materialModule.MatCheckboxModule,
-      materialModule.MatToolbarModule,
-      materialModule.MatFormFieldModule,
-      materialModule.MatInputModule,
-      materialModule.MatSelectModule,
-      materialModule.MatOptionModule,
-      materialModule.MatSliderModule,
-      materialModule.MatDatepickerModule,
-      materialModule.MatNativeDateModule,
-      RouterModule.forRoot(
-          appRoutes,
-          { enableTracing: true } // <-- debugging purposes only
-      )
+    BrowserAnimationsModule,
+    materialModule.MatButtonModule,
+    materialModule.MatCheckboxModule,
+    materialModule.MatToolbarModule,
+    materialModule.MatFormFieldModule,
+    materialModule.MatInputModule,
+    materialModule.MatSelectModule,
+    materialModule.MatOptionModule,
+    materialModule.MatSliderModule,
+    materialModule.MatDatepickerModule,
+    materialModule.MatNativeDateModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyf33DQnrhprM-Su1xjSo7-3w-t9qHI9U'
+    }),
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
 
   ],
   providers: [NewUserService, DatePipe],

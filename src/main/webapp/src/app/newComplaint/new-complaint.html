@@ -29,7 +29,9 @@
     </div>
 
     <div *ngIf="selectedLocation == 'Not Internet'">
-      g-maps
+      <agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+        <agm-marker [latitude]="mapPointerLat" [longitude]="mapPointerLng"></agm-marker>
+      </agm-map>
     </div>
 
   </div>
