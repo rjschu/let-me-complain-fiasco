@@ -11,7 +11,7 @@ public class ClockworkSMSRepository {
 
     public void sendSMS(long to, String content){
         RestTemplate template = new RestTemplate();
-        String stuff = template.getForObject(String.format(BASE_URL+"?key=%s&to=%d&content=%s","send.aspx",API_KEY,to,content),String.class);
+        String stuff = template.getForObject(String.format(BASE_URL+"?key=%s&to=44%d%d&content=%s","send.aspx",API_KEY,to,content),String.class);
         System.out.println(stuff);
     }
 

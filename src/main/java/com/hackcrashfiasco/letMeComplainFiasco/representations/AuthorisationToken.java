@@ -7,6 +7,7 @@ import java.time.LocalDate;
 public class AuthorisationToken implements Token {
 
 
+    private final String id;
     private final String firstName;
     private final String surname;
     private final int age;
@@ -21,6 +22,7 @@ public class AuthorisationToken implements Token {
         dateOfBirth = user.getDateOfBirth();
         emailAddress = user.getEmailAddress();
         telephoneNumber = user.getTelephoneNumber();
+        id = user.getId().orElseThrow(RuntimeException::new);
     }
 
     public String getFirstName() {

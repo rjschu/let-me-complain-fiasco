@@ -11,4 +11,5 @@ public class AuthenticationRepresentation {
     public String getPassword() {
         return password;
     }
+    
 }
