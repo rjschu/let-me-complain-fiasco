@@ -1,43 +1,47 @@
 <form name="MrForm">
   <div class="outer-container">
-    <mat-form-field>
-      <mat-select name="test" required [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
-        <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-select name="test" required [(ngModel)]="selectedtypeOfComplaint" placeholder="Type of complaint">
+          <mat-option *ngFor="let type of typesOfComplaint" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <div *ngIf="selectedtypeOfComplaint == 'Just Angry'">
-      <iframe width="960" height="540" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
-      Please enjoy this complementary kitten therapy session
-    </div>
+      <div *ngIf="selectedtypeOfComplaint == 'Just Angry'">
+        <iframe width="960" height="540" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
+        Please enjoy this complementary kitten therapy session
+      </div>
 
-    <div>
+      <mat-form-field >
+        <input name="test" matInput type="url" [(ngModel)]="selectedBusinessName" placeholder="Name of bad business" >
+      </mat-form-field>
+
       <mat-form-field>
         <mat-select name="test" required [(ngModel)]="selectedLocationType" placeholder="Location">
           <mat-option *ngFor="let type of typesOfLocation" [value]="type">{{ type }}</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
 
-    <div *ngIf="selectedLocationType == 'Internet'">
-      <mat-form-field >
+      <mat-form-field *ngIf="selectedLocationType == 'Internet'">
         <input name="test" [formControl]="complaintLocationURLFormControl" matInput type="url" [(ngModel)]="selectedURLLocation" placeholder="Internet Place:" >
         <mat-error *ngIf="complaintLocationURLFormControl.hasError('required')">
           Please enter a valid internet address
         </mat-error>
       </mat-form-field>
-    </div>
 
-    <div *ngIf="selectedLocationType == 'Not Internet'">
-      <agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+      <agm-map *ngIf="selectedLocationType == 'Not Internet'" [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapClick)="mapClicked($event)" (zoomChange)="zoomChange($event)">
         <agm-marker [latitude]="mapPointerLat" [longitude]="mapPointerLng"></agm-marker>
       </agm-map>
-      <mat-form-field>
+      <mat-form-field *ngIf="selectedLocationType == 'Not Internet'">
         <mat-select name="test" required [(ngModel)]="selectedAddressLocation" placeholder="Address">
           <mat-option *ngFor="let address of reverseGeocodedAddressList" [value]="address.formatted_address">{{ address.formatted_address }}</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
 
+      <mat-form-field >
+        <textarea matInput name="test" type="url" [(ngModel)]="selectedBusinessName" placeholder="Complaint Body"></textarea>
+        <mat-hint align="end">Feel free to add all the irrelevent information you like </mat-hint>
+      </mat-form-field>
+    </div>
   </div>
 </form>
