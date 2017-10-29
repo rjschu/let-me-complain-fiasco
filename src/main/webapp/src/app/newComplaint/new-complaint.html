@@ -7,7 +7,7 @@
         </mat-select>
       </mat-form-field>
 
-      <div *ngIf="complaint.selectedtypeOfComplaint == 'Just Angry'">
+      <div *ngIf="complaint.complaintType == 'Just Angry'">
         <iframe width="960" height="540" [src]=getCatVideoURL() frameborder="0" allowfullscreen></iframe>
         Please enjoy this complementary kitten therapy session
       </div>
