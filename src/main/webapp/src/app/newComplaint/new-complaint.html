@@ -12,6 +12,12 @@
     </div>
 
     <div>
+      <mat-form-field >
+        <input name="test" matInput type="url" [(ngModel)]="selectedBusinessName" placeholder="Name of bad business" >
+      </mat-form-field>
+    </div>
+
+    <div>
       <mat-form-field>
         <mat-select name="test" required [(ngModel)]="selectedLocationType" placeholder="Location">
           <mat-option *ngFor="let type of typesOfLocation" [value]="type">{{ type }}</mat-option>
