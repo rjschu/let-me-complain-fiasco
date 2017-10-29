@@ -20,11 +20,12 @@ export class NewComplaintComponent implements OnInit{
 
   zoom: number;
 
-  typesOfComplaint: string[];
-  typesOfLocation: string[];
+  typesOfComplaint: object[];
+  typesOfLocation: object[];
 
   reverseGeocodedAddressList : string[];
-  complaint: object;
+  complaint: object = {};
+  success: boolean = false;
 
   ngOnInit(): void {
     this.mapLat = 53.4773408;
@@ -36,13 +37,13 @@ export class NewComplaintComponent implements OnInit{
     this.zoom = 16;
 
     this.typesOfComplaint = [
-      "Just Angry",
-      "Genuine Complaint"
+      {value: "just angry", view: "Just Angry"},
+      {value: "genuine complaint", view: "Genuine Complaint"}
     ]
 
     this.typesOfLocation = [
-      "Internet",
-      "Not Internet"
+      {value: "internet", view: "Internet"},
+      {value: "not internet", view: "Not Internet"}
     ]
 
     this.findLocation()
@@ -80,6 +81,7 @@ export class NewComplaintComponent implements OnInit{
   }
 
   submit() {
-      return this.complaintService.submitComplaint(this.complaint);
+      this.complaintService.submitComplaint(this.complaint)
+        .subscribe(() => {this.success = true;});
   }
 }
